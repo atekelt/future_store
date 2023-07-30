@@ -1,0 +1,28 @@
+
+<%= simple_form_for(@product) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, autofocus: true, class: "form-control", :as => :text, :input_html => { 'rows' => 5, 'cols' => 10 } %>
+    </div>
+    <div class="form-group">
+      <%= f.label :price %>
+      <%= f.number_field :price, autofocus: true, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :images %>
+      <%= f.file_field :images, autofocus: true, class: "form-control", multiple: true %>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
