@@ -1,11 +1,11 @@
-<div class="main_slider" style="background-image: url(/images/slider_1.png);">
+<div class="main_slider" style="background-image: url(<%= asset_path 'slider_1.png' %>);">
     <div class="container fill_height">
         <div class="row align-items-center fill_height">
             <div class="col">
                 <div class="main_slider_content">
                     <h6>The Market You Deserve On The Palm Of Your Hands. </h6>
                     <h1>Wellcome To The Future Of Shopping</h1>
-                    <div class="red_button shop_now_button"><a href="#">shop now</a></div>
+                    <div class="red_button shop_now_button"><a href="/products">shop now</a></div>
                 </div>
             </div>
         </div>
@@ -25,23 +25,23 @@
         </div>
         <div class="row">
             <div class="col-md-4">
-                <div class="banner_item align-items-center" style="background-image:url(images/housewares.jpg)">
+                <div class="banner_item align-items-center" style="background-image:url(<%= asset_path 'housewares.jpg' %>)">
                     <div class="banner_category">
-                        <a href="categories.html">Housewares</a>
+                        <a href="/products">Housewares</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="banner_item align-items-center" style="background-image:url(images/cosmetics.jpg)">
+                <div class="banner_item align-items-center" style="background-image:url(<%= asset_path 'cosmetics.jpg' %>)">
                     <div class="banner_category">
-                        <a href="categories.html">Cosmetics</a>
+                        <a href="#" onclick="alert('Catagory Coming Soon :)')">Cosmetics</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="banner_item align-items-center" style="background-image:url(images/electronics.jpg)">
+                <div class="banner_item align-items-center" style="background-image:url(<%= asset_path 'electronics.jpg' %>)">
                     <div class="banner_category">
-                        <a href="categories.html">Electronics</a>
+                        <a href="#" onclick="alert('Catagory Coming Soon :)')">Electronics</a>
                     </div>
                 </div>
             </div>
@@ -77,10 +77,27 @@
 
                     <!-- Product 1 -->
 
+                    <% @products.each do |product| %>
+                        <div class="product-item housewares">
+                            <div class="product">
+                                <div class="product_image">
+                                    <%= image_tag url_for(product.images.first) %>
+                                </div>
+                                <div class="favorite favorite_left"></div>
+                                <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><%= link_to product.to_s, product %></h6>
+                                    <div class="product_price">$<%= product.price %></div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+                    <% end %>
+
                     <div class="product-item electronics">
-                        <div class="product discount product_filter">
+                        <div class="product">
                             <div class="product_image">
-                                <img src="images/product_1.png" alt="">
+                                <img src="<%= asset_path 'product_1.png' %>" alt="">
                             </div>
                             <div class="favorite favorite_left"></div>
                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
@@ -97,7 +114,7 @@
                     <div class="product-item housewares">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_2.png" alt="">
+                                <img src="<%= asset_path 'product_2.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
@@ -114,7 +131,7 @@
                     <div class="product-item housewares">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_3.png" alt="">
+                                <img src="<%= asset_path 'product_3.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_info">
@@ -130,7 +147,7 @@
                     <div class="product-item cosmetics">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_4.png" alt="">
+                                <img src="<%= asset_path 'product_4.png' %>" alt="">
                             </div>
                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
                             <div class="favorite favorite_left"></div>
@@ -147,7 +164,7 @@
                     <div class="product-item housewares electronics">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_5.png" alt="">
+                                <img src="<%= asset_path 'product_5.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_info">
@@ -161,9 +178,9 @@
                     <!-- Product 6 -->
 
                     <div class="product-item cosmetics">
-                        <div class="product discount product_filter">
+                        <div class="product">
                             <div class="product_image">
-                                <img src="images/product_6.png" alt="">
+                                <img src="<%= asset_path 'product_6.png' %>" alt="">
                             </div>
                             <div class="favorite favorite_left"></div>
                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
@@ -180,7 +197,7 @@
                     <div class="product-item housewares">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_7.png" alt="">
+                                <img src="<%= asset_path 'product_7.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_info">
@@ -196,7 +213,7 @@
                     <div class="product-item cosmetics">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_8.png" alt="">
+                                <img src="<%= asset_path 'product_8.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_info">
@@ -212,7 +229,7 @@
                     <div class="product-item electronics">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_9.png" alt="">
+                                <img src="<%= asset_path 'product_9.png' %>" alt="">
                             </div>
                             <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
                             <div class="favorite favorite_left"></div>
@@ -229,7 +246,7 @@
                     <div class="product-item electronics">
                         <div class="product product_filter">
                             <div class="product_image">
-                                <img src="images/product_10.png" alt="">
+                                <img src="<%= asset_path 'product_10.png' %>" alt="">
                             </div>
                             <div class="favorite"></div>
                             <div class="product_info">
@@ -246,44 +263,44 @@
 </div>
 
 <div class="benefit">
-		<div class="container">
-			<div class="row benefit_row">
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>delivery for every item</h6>
-							<p>You Order We Deliver</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>cash on delivery</h6>
-							<p>You have the option to only pay up-on delivery</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>5 days return</h6>
-							<p>Return guarantied with in the next 5 days </p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 benefit_col">
-					<div class="benefit_item d-flex flex-row align-items-center">
-						<div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
-						<div class="benefit_content">
-							<h6>opening all week</h6>
-							<p>24 Hours</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="container">
+        <div class="row benefit_row">
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-truck" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>delivery for every item</h6>
+                        <p>You Order We Deliver</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-money" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>cash on delivery</h6>
+                        <p>You have the option to only pay up-on delivery</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-undo" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>5 days return</h6>
+                        <p>Return guarantied with in the next 5 days </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 benefit_col">
+                <div class="benefit_item d-flex flex-row align-items-center">
+                    <div class="benefit_icon"><i class="fa fa-clock-o" aria-hidden="true"></i></div>
+                    <div class="benefit_content">
+                        <h6>opening all week</h6>
+                        <p>24 Hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

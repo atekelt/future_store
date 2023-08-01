@@ -1,14 +1,98 @@
-<p style="color: green"><%= notice %></p>
+<div class="contact_container">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="section_title new_arrivals_title">
+          <h2>Products</h2> <% if user_signed_in? && current_user.role == "Admin" %> | <%= link_to "New product", new_product_path %><% end %>
+        </div>
+      </div>
+    </div>
 
-<h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+    <div class="row">
+      <div class="col">
+      <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+          <% @products.each do |product| %>
+            <div class="product-item men">
+							<div class="product">
+								<div class="product_image">
+									<%= image_tag url_for(product.images.first) %>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><%= link_to product, product.to_s %></h6>
+									<div class="product_price">$<%= product.price %></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+          <% end %>
+          <% @products.each do |product| %>
+            <div class="product-item men">
+							<div class="product">
+								<div class="product_image">
+									<%= image_tag url_for(product.images.first) %>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><%= link_to product, product.to_s %></h6>
+									<div class="product_price">$<%= product.price %></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+          <% end %>
+          <% @products.each do |product| %>
+            <div class="product-item men">
+							<div class="product">
+								<div class="product_image">
+									<%= image_tag url_for(product.images.first) %>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><%= link_to product, product.to_s %></h6>
+									<div class="product_price">$<%= product.price %></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+          <% end %>
+          <% @products.each do |product| %>
+            <div class="product-item men">
+							<div class="product">
+								<div class="product_image">
+									<%= image_tag url_for(product.images.first) %>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><%= link_to product, product.to_s %></h6>
+									<div class="product_price">$<%= product.price %></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+          <% end %>
+          <% @products.each do |product| %>
+            <div class="product-item men">
+							<div class="product">
+								<div class="product_image">
+									<%= image_tag url_for(product.images.first) %>
+								</div>
+								<div class="favorite favorite_left"></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_info">
+									<h6 class="product_name"><%= link_to product, product.to_s %></h6>
+									<div class="product_price">$<%= product.price %></div>
+								</div>
+							</div>
+							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+						</div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New product", new_product_path %>
